@@ -1,0 +1,58 @@
+/* 自定义美化样式：在 Butterfly 默认样式之上微调 */
+
+:root {
+  --theme-color: #7c3aed;
+  --btn-bg: #7c3aed;
+  --btn-hover-color: #ec4899;
+  --scrollbar-color: #a78bfa;
+}
+
+/* 首页标题渐变发光 */
+#site-title {
+  background: linear-gradient(90deg, #fff, #fbcfe8, #ddd6fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  letter-spacing: 4px;
+}
+
+/* 文章卡片悬浮上浮 + 阴影 */
+#recent-posts .recent-post-item,
+#aside-content .card-widget {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#recent-posts .recent-post-item:hover,
+#aside-content .card-widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.18);
+}
+
+/* 文章标题悬停变色 */
+#recent-posts .recent-post-item .article-title:hover {
+  color: var(--theme-color);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-color); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* 文本选中颜色 */
+::selection { background: #a78bfa; color: #fff; }
+
+/* 引用块 */
+#article-container blockquote {
+  border-left-color: var(--theme-color);
+  background: rgba(124, 58, 237, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+/* 深色模式微调 */
+[data-theme="dark"] #recent-posts .recent-post-item:hover,
+[data-theme="dark"] #aside-content .card-widget:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+[data-theme="dark"] #article-container blockquote {
+  background: rgba(167, 139, 250, 0.08);
+}
